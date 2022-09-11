@@ -48,7 +48,7 @@ namespace HideUiMod
             RightMenuHide = Config.Bind("UIHide", "RightMenu", true, "Turn hide right menu on or off");
             ClockHide = Config.Bind("UIHide", "Clock", true, "Turn hide clock on or off");
             ChatWindowHide = Config.Bind("UIHide", "ChatWindow", true, "Turn hide chat window on or off");
-            AllUIHide = Config.Bind("UIHide", "AllUI", false, "Enable to hide all UI including player name and health");
+            AllUIHide = Config.Bind("UIHide", "AllUI", false, "Enable to hide all UI including players/enemies name and health");
         }
 
     }
