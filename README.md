@@ -38,7 +38,7 @@ Clock = true
 # Default value: true
 ChatWindow = true
 
-## Enable to hide all UI including player name and health
+## Enable to hide all UI including players/enemies name and health
 # Setting type: Boolean
 # Default value: false
 AllUI = false
@@ -52,4 +52,4 @@ AllUI = false
 |UIHide|`RightMenu `            | Turn hide clock on or off             | true
 |UIHide|`Clock `            | Turn hide minimap on or off             | true
 |UIHide|`ChatWindow `            | Turn hide minimap on or off             | true
-|UIHide|`AllUI `            | Enable to hide all UI including player name and health            | false
+|UIHide|`AllUI `            | Enable to hide all UI including players/enemies name and health            | false
