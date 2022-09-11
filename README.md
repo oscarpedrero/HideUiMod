@@ -1,5 +1,5 @@
 
-A client mod to hide the game ui.:
+A client mod to hide the game ui:
 
 ## Configuration
 

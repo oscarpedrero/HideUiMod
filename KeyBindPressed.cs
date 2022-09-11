@@ -52,9 +52,9 @@ namespace HideUiMod
 
                     if (Plugin.RightMenuHide.Value) rightMenu.SetActive(UIActive);
                     if (Plugin.MiniMapHide.Value) miniMap.SetActive(UIActive);
-                    if (Plugin.RightMenuHide.Value) clock.SetActive(UIActive);
-                    if (Plugin.RightMenuHide.Value) bottomBar.SetActive(UIActive);
-                    if (Plugin.RightMenuHide.Value) chatWindow.SetActive(UIActive);
+                    if (Plugin.ClockHide.Value) clock.SetActive(UIActive);
+                    if (Plugin.BottomBarHide.Value) bottomBar.SetActive(UIActive);
+                    if (Plugin.ChatWindowHide.Value) chatWindow.SetActive(UIActive);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(keybindFunction), keybindFunction, null);
