@@ -1,7 +1,7 @@
 {
   "name": "HideUiMod",
   "version_number": "1.0.0",
-  "website_url": "https://github.com/NopeyBoi/ChatCommands",
+  "website_url": "https://github.com/oscarpedrero/HideUiMod",
   "description": "A client mod to hide the game ui.",
   "dependencies": [
     "BepInEx-BepInExPack_V_Rising-1.0.0",
