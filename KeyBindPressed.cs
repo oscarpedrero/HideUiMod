@@ -19,46 +19,81 @@ namespace HideUiMod
         internal static void OnKeyPressedOpenPanel(KeyBindFunction keybindFunction)
         {
 
-            if(allUI == null) allUI = GameObject.Find("HUDCanvas(Clone)");
-            if(rightMenu == null) rightMenu = GameObject.Find("LinksHUDParent(Clone)");
-            if(miniMap == null) miniMap = GameObject.Find("MiniMapParent(Clone)");
-            if(clock == null) clock = GameObject.Find("ClockParent3(Clone)");
-            if(bottomBar == null) bottomBar = GameObject.Find("BottomBar2(Clone)");
+            try
+            {
+                switch (keybindFunction)
+                {
+                    case KeyBindFunction.ToggleUIHideMod:
+                        setUI();
+                        changeStateUI();
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(keybindFunction), keybindFunction, null);
+                }
+            }
+            catch
+            {
+
+                switch (keybindFunction)
+                {
+                    case KeyBindFunction.ToggleUIHideMod:
+                        allUI = null;
+                        rightMenu = null;
+                        miniMap = null;
+                        clock = null;
+                        bottomBar = null;
+                        chatWindow = null;
+
+                        setUI();
+                        changeStateUI();
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(keybindFunction), keybindFunction, null);
+                }
+
+            }
+
+            
+        }
+
+        internal static void setUI()
+        {
+            if (allUI == null) allUI = GameObject.Find("HUDCanvas(Clone)");
+            if (rightMenu == null) rightMenu = GameObject.Find("LinksHUDParent(Clone)");
+            if (miniMap == null) miniMap = GameObject.Find("MiniMapParent(Clone)");
+            if (clock == null) clock = GameObject.Find("ClockParent3(Clone)");
+            if (bottomBar == null) bottomBar = GameObject.Find("BottomBar2(Clone)");
             if (chatWindow == null)
             {
                 chatWindow = GameObject.Find("ChatWindow(Clone)");
                 initialPosition = chatWindow.transform.position;
             }
+        }
 
-            switch (keybindFunction)
+        internal static void changeStateUI()
+        {
+            if (UIActive)
             {
-                case KeyBindFunction.ToggleUIHideMod:
-
-                    if (UIActive)
-                    {
-                        UIActive = false;
-                        if(Plugin.ChatWindowHide.Value && !Plugin.AllUIHide.Value) chatWindow.transform.position = new Vector2(-50000, -50000);
-                    } else
-                    {
-                        UIActive = true;
-                        if (Plugin.ChatWindowHide.Value && !Plugin.AllUIHide.Value) chatWindow.transform.position = initialPosition;
-                    }
-
-                    if (Plugin.AllUIHide.Value)
-                    {
-                        allUI.SetActive(UIActive);
-                        break;
-                    }
-
-                    if (Plugin.RightMenuHide.Value) rightMenu.SetActive(UIActive);
-                    if (Plugin.MiniMapHide.Value) miniMap.SetActive(UIActive);
-                    if (Plugin.ClockHide.Value) clock.SetActive(UIActive);
-                    if (Plugin.BottomBarHide.Value) bottomBar.SetActive(UIActive);
-                    if (Plugin.ChatWindowHide.Value) chatWindow.SetActive(UIActive);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(keybindFunction), keybindFunction, null);
+                UIActive = false;
+                if (Plugin.ChatWindowHide.Value && !Plugin.AllUIHide.Value) chatWindow.transform.position = new Vector2(-50000, -50000);
             }
+            else
+            {
+                UIActive = true;
+                if (Plugin.ChatWindowHide.Value && !Plugin.AllUIHide.Value) chatWindow.transform.position = initialPosition;
+            }
+
+            if (Plugin.AllUIHide.Value)
+            {
+                allUI.SetActive(UIActive);
+                return;
+            }
+
+            if (Plugin.RightMenuHide.Value) rightMenu.SetActive(UIActive);
+            if (Plugin.MiniMapHide.Value) miniMap.SetActive(UIActive);
+            if (Plugin.ClockHide.Value) clock.SetActive(UIActive);
+            if (Plugin.BottomBarHide.Value) bottomBar.SetActive(UIActive);
+            if (Plugin.ChatWindowHide.Value) chatWindow.SetActive(UIActive);
         }
     }
 }
