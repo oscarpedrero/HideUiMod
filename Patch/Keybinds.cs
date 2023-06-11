@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Wetstone.API;
+using Bloodstone.API;
 
 namespace HideUiMod.Patch
 {

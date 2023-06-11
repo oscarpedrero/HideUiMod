@@ -1,3 +1,4 @@
+# HideUIMod - Mod client for V Rising ( Gloomrot update )
 
 A client mod to hide the game ui:
 

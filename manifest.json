@@ -1,10 +1,10 @@
 {
   "name": "HideUiMod",
-  "version_number": "1.0.1",
+  "version_number": "2.0.0",
   "website_url": "https://github.com/oscarpedrero/HideUiMod",
   "description": "A client mod to hide the game ui.",
   "dependencies": [
-    "BepInEx-BepInExPack_V_Rising-1.0.0",
-    "molenzwiebel-Wetstone-1.2.0"
+    "BepInEx-BepInExPack_V_Rising-1.668.5",
+    "deca-Bloodstone-0.1.4"
   ]
 }

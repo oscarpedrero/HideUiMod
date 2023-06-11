@@ -1,6 +1,6 @@
 ﻿using BepInEx;
+using BepInEx.Unity.IL2CPP;
 using BepInEx.Configuration;
-using BepInEx.IL2CPP;
 using BepInEx.Logging;
 using HarmonyLib;
 using HideUiMod.Patch;
@@ -8,15 +8,15 @@ using System.Reflection;
 
 namespace HideUiMod
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-    [BepInDependency("xyz.molenzwiebel.wetstone")]
+    [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+    [BepInDependency("gg.deca.Bloodstone")]
     public class Plugin : BasePlugin
     {
 
         internal static Plugin Instance;
-        internal static string Name = PluginInfo.PLUGIN_NAME;
-        internal static string Guid = PluginInfo.PLUGIN_GUID;
-        internal static string Version = PluginInfo.PLUGIN_VERSION;
+        internal static string Name = MyPluginInfo.PLUGIN_NAME;
+        internal static string Guid = MyPluginInfo.PLUGIN_GUID;
+        internal static string Version = MyPluginInfo.PLUGIN_VERSION;
 
         public static ManualLogSource Logger;
         private Harmony _harmony;
@@ -33,10 +33,10 @@ namespace HideUiMod
         {
             Instance = this;
             Logger = Log;
-            _harmony = new Harmony(PluginInfo.PLUGIN_GUID);
+            _harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
             InitConfig();
             // Plugin startup logic
-            Log.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+            Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
             KeyBinds.Initialize();
             KeyBinds.OnKeyPressed += KeyBindPressed.OnKeyPressedOpenPanel;
         }
